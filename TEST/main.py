@@ -33,20 +33,20 @@ def plate(source):
                 roi = img[y:y + lar, x:x + alt]
                 cv2.imwrite('out/roi.png', roi)
     
-    #cv2.imshow('IMG contours',img)
+    cv2.imshow('IMG contours',img)
 
 # treating photo
 def treating_photo():
     img = cv2.imread(r'out\roi.png')
 
     img_size = cv2.resize(img, None, fx=8, fy=8, interpolation=cv2.INTER_CUBIC)
-    cv2.imshow('IMG resize',img_size)
+    #cv2.imshow('IMG resize',img_size)
 
     img_gray = cv2.cvtColor(img_size, cv2.COLOR_BGR2GRAY)
-    cv2.imshow('IMG gray',img_gray)
+    #cv2.imshow('IMG gray',img_gray)
 
     _, img_binary = cv2.threshold(img_gray, 165, 255, cv2.THRESH_BINARY)
-    cv2.imshow('IMG binary',img_binary)
+    #cv2.imshow('IMG binary',img_binary)
     
     # img_desfoque = cv2.GaussianBlur(img_binary, (5, 5), 0)
     # cv2.imshow('IMG desfoque',img_desfoque)
